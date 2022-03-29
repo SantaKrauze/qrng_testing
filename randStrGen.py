@@ -1,14 +1,21 @@
+#!/usr/bin/python3
 import random
+import numpy as np
+import sys
 
-file1=open('str1.txt','a')
-file2=open('str2.txt','a')
+pathOut = sys.argv[2]
+size = int(sys.argv[1])
+binMerged = np.empty(0,dtype=int)
 
-size = 10000000
-for i in range(size):
-    r2=str(random.randint(0,1))
-    r1=str(random.randint(0,1))
-    file1.write(r1)
-    file2.write(r2)
+print("==========================")
+print('File :',pathOut,'\nSize =',size)
 
-file1.close()
-file2.close()
+for i in range(0, size):
+    a = random.randint(0,1)
+    binMerged = np.append(binMerged,a)
+    print("\r",f'Gen: {i/(size)*100:.1f}%',end="")
+
+out = np.packbits(binMerged)
+out.tofile(pathOut,sep="")
+print('\nDone. \nTotal size:',len(binMerged),'b')
+print("==========================\n")
