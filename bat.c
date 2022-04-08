@@ -6,7 +6,7 @@
 
 int count = 0;
 
-unsigned int genFromFile(){
+/*unsigned int genFromFile(){
 
 	FILE *fp;
 	int c;
@@ -41,22 +41,22 @@ static double unixRand (){
 	double r = random()/(RAND_MAX);
 	return r;
 }
-
+*/
 int main (int argc, char *argv[]){
    if(argc < 3){
       printf("Too few arguments, provide path and string lenght");
    }
-   swrite_Basic = TRUE;
+   swrite_Basic = FALSE;
    //bbattery_SmallCrushFile (argv[1]);
-   unif01_Gen *gen;
+   //unif01_Gen *gen;
    //for (int i =0; i<10; i++){
    //	   gen();
    //}
-   gen = unif01_CreateExternGenBits("Binary File",genFromFile);
-   bbattery_SmallCrush(gen);
-   //bbattery_RabbitFile (argv[1], atoi(argv[2]));
-   //bbattery_AlphabitFile (argv[1], atoi(argv[2]));
-   //bbattery_FIPS_140_2File (argv[1]);
-   unif01_DeleteExternGenBits(gen);
+   //gen = unif01_CreateExternGenBits("Binary File",genFromFile);
+   //bbattery_SmallCrush(gen);
+   bbattery_RabbitFile (argv[1], atoi(argv[2]));
+   bbattery_AlphabitFile (argv[1], atoi(argv[2]));
+   bbattery_FIPS_140_2File (argv[1]);
+   //unif01_DeleteExternGenBits(gen);
    return 0;
 }
