@@ -23,11 +23,6 @@ binMerged = np.empty(3*size,dtype=int)
 print("=============================")
 print('File 1:',path1,'\nFile 2:',path2,'\nOutput:',pathOut,'\nShift =',shift)
 
-#a = np.empty(shift, dtype=int)
-#b = np.empty(shift, dtype=int)
-#c = np.empty(shift, dtype=int)
-#d = np.empty(3*shift, dtype=int)
-
 for i in range(0, math.floor(size/shift)):
     for j in range(0,2):
         for k in range(i*shift, (i+1)*shift):
@@ -39,27 +34,6 @@ for i in range(0, math.floor(size/shift)):
                 x=bin3[k]
             binMerged[k] = x
         print("\r",f'Merging: {i/(size/shift)*100:.1f}%',end="")
-
-
-
-#for j in range(0,2):
-#    for k in range(i*shift, (i+1)*shift):
-#        
-#        if j == 0:
-#            x=bin1[k]
-#        else if j==1:
-#            x=bin2[k]
-#        else:
-#            x=bin3[k]
-#        binMerged[k] = x
-
-#for i in range(0, math.floor(size/shift)+1):
-#    a = bin1[i*shift:(i+1)*shift]
-#    b = bin2[i*shift:(i+1)*shift]
-#    c = bin3[i*shift:(i+1)*shift]
-#    d = np.concatenate((a,b,c))
-#    binMerged = np.concatenate((binMerged,d))    
-#    print("\r",f'Merging: {i/(size/shift)*100:.1f}%',end="")
 
 out = np.packbits(binMerged)
 total = len(out)
