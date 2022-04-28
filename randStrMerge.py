@@ -11,7 +11,7 @@ path1 = "qrng/QNGFile1.dat"
 path2 = "qrng/QNGFile2.dat"
 shift = int(sys.argv[1])
 
-pathOut = sys.argv[2]
+pathOut = "merged/"+sys.argv[2]
 
 file1 = np.fromfile(path1,dtype='uint8')
 bin1 = np.unpackbits(file1)
@@ -49,6 +49,6 @@ t2 = time.time()
 sec = t2 - t1
 mins = math.floor(sec/60)
 
-print('\nDone in {0:.0f} min {1:.0f} s. \nTotal size: {2}b'.format(mins,sec%60,total))
+print('\nDone in {0:.0f}min {1:.0f}s. \nTotal size: {2}b'.format(mins,sec%60,total))
 print("=============================\n")
 out.tofile(pathOut,sep="")
