@@ -2,7 +2,7 @@
 
 echo "Starting"
 
-#./randStrMerge.py 1 merge1.dat
+./randStrMerge.py 1 merge1.dat
 ./randStrMerge.py 5 merge5.dat
 ./randStrMerge.py 10 merge10.dat
 ./randStrMerge.py 50 merge50.dat

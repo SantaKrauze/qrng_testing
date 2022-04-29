@@ -6,7 +6,7 @@ import os
 import time
 import numpy as np
 
-t1 = time.time()
+start = time.time()
 path1 = "qrng/QNGFile1.dat"
 path2 = "qrng/QNGFile2.dat"
 shift = int(sys.argv[1])
@@ -36,19 +36,14 @@ for i in range(0, math.floor(size/shift)):
             else:
                 x=bin3[k]
             binMerged[n] = x
-            #print(n)
             n +=1
-            #print(k+j*shift,bin1[k],bin2[k],bin3[k],x)
             print("\r",f'Merging: {n/3/size*100:.2f}%',end="")
 
 out = np.packbits(binMerged)
-total = n
-#print(binMerged)
-#print(out)
-t2 = time.time()
-sec = t2 - t1
+out.tofile(pathOut,sep="")
+sec = time.time() - start
 mins = math.floor(sec/60)
 
 print('\nDone in {0:.0f}min {1:.0f}s. \nTotal size: {2}b'.format(mins,sec%60,total))
 print("=============================\n")
-out.tofile(pathOut,sep="")
+

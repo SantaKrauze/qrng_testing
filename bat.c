@@ -14,7 +14,7 @@ int main (int argc, char *argv[]){
       printf("Too few arguments, provide path and string lenght");
    }
 
-   if (argv[3] == "1") swrite_Basic = TRUE;
+   if (atoi(argv[3]) == 1) swrite_Basic = TRUE;
    else swrite_Basic = FALSE;
    
    int buff = atoi(argv[2]);
